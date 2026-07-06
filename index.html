@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Оплата разработки лендинга - Matvey.Geek</title>
+    <meta name="description" content="Оплата разработки лендинга у самозанятого Маркова Матвея Михайловича." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="grid"></div>
+      <div class="shell">
+        <header class="topbar">
+          <a class="brand" href="/"><span>Matvey</span>.Geek</a>
+          <nav class="nav" aria-label="Навигация">
+            <a href="/oferta-razrabotka/">Оферта</a>
+            <a href="/politika-pd/">Политика ПД</a>
+            <a href="/requisites/">Реквизиты</a>
+          </nav>
+        </header>
+
+        <main class="hero">
+          <section>
+            <div class="badge">Заказ на разработку сайта</div>
+            <h1>Оплата разработки <span class="gradient">лендинга</span></h1>
+            <p class="lead">
+              Страница для оформления заказа по публичной оферте. После заявки я свяжусь с вами,
+              подтвержу детали проекта и способ оплаты.
+            </p>
+
+            <div class="metrics" aria-label="Параметры услуги">
+              <div class="metric">
+                <strong>4 900 ₽</strong>
+                <span>стоимость</span>
+              </div>
+              <div class="metric">
+                <strong>100%</strong>
+                <span>предоплата</span>
+              </div>
+              <div class="metric">
+                <strong>1 услуга</strong>
+                <span>разработка лендинга</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="card checkout" aria-label="Форма оплаты">
+            <div class="checkout-head">
+              <div>
+                <div class="icon">₽</div>
+                <h2>Оплата разработки лендинга</h2>
+                <p class="small">Заполните контакты, примите документы и отправьте заявку в Telegram.</p>
+              </div>
+              <div class="amount">
+                <span>к оплате</span>
+                <strong>4 900 ₽</strong>
+              </div>
+            </div>
+
+            <form class="form" data-payment-form>
+              <label>
+                Email для связи
+                <input name="email" type="email" placeholder="client@example.com" autocomplete="email" required />
+              </label>
+
+              <label>
+                Имя клиента
+                <input name="customerName" type="text" placeholder="Иван" autocomplete="name" />
+              </label>
+
+              <label class="agreement">
+                <input name="agreed" type="checkbox" required />
+                <span>
+                  Я принимаю <a href="/oferta-razrabotka/" target="_blank">оферту</a> и соглашаюсь с
+                  <a href="/politika-pd/" target="_blank">политикой обработки персональных данных</a>.
+                </span>
+              </label>
+
+              <div class="error" data-error role="alert"></div>
+
+              <button class="button" type="submit">Оформить заказ в Telegram →</button>
+
+              <div class="notice">
+                Онлайн-оплата через ЮKassa подключается после проверки сайта. Сейчас заявка уходит
+                напрямую исполнителю, чтобы сайт был доступен на обычном Beget-хостинге.
+              </div>
+
+              <div class="steps" aria-label="Как оказывается услуга">
+                <div class="step">
+                  <strong>Как получить заказ</strong>
+                  Результат разработки передается в виде ссылки на опубликованный сайт, архива с файлами
+                  или доступа к проекту.
+                </div>
+                <div class="step">
+                  <strong>Срок и состав работ</strong>
+                  Конкретный объем, материалы и сроки согласуются в переписке до начала выполнения услуги.
+                </div>
+              </div>
+            </form>
+          </section>
+        </main>
+      </div>
+
+      <footer>
+        <div class="shell">© 2026 Matvey.Geek · Самозанятый · ИНН 761020292512</div>
+      </footer>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>
