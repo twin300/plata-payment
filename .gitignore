@@ -1,0 +1,23 @@
+# deps/build
+node_modules
+.next
+out
+
+# env/secrets
+.env
+.env*.local
+.env.production
+
+# runtime data
+/data/*.db
+/data/*.db-*
+/data/*.sqlite
+/data/*.sqlite-*
+
+# local verification
+test-results
+playwright-report
+dev-server.log
+
+# system
+.DS_Store
