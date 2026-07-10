@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getPaymentConfig } from "@/config/payment";
 import { attachPaymentProviderData, createPayment, updatePaymentStatus } from "@/lib/db";
 import { createTbankPayment } from "@/lib/tbank";
+import { createYooKassaPayment } from "@/lib/yookassa";
 
 export const runtime = "nodejs";
 
@@ -50,17 +51,26 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ success: true, orderId, paymentUrl, provider: "mock" });
     }
 
-    const result = await createTbankPayment({
-      orderId,
-      amountKopeks: config.amountKopeks,
-      description: config.productName,
-      email,
-      notificationUrl: config.tbankNotificationUrl,
-      successUrl: `${config.appUrl}/success?orderId=${encodeURIComponent(orderId)}`,
-      failUrl: `${config.appUrl}/fail?orderId=${encodeURIComponent(orderId)}`,
-      receiptTaxation: config.receiptTaxation,
-      receiptTax: config.receiptTax,
-    });
+    const result =
+      config.provider === "yookassa"
+        ? await createYooKassaPayment({
+            orderId,
+            amountKopeks: config.amountKopeks,
+            description: config.productName,
+            email,
+            returnUrl: `${config.appUrl}/success?orderId=${encodeURIComponent(orderId)}`,
+          })
+        : await createTbankPayment({
+            orderId,
+            amountKopeks: config.amountKopeks,
+            description: config.productName,
+            email,
+            notificationUrl: config.tbankNotificationUrl,
+            successUrl: `${config.appUrl}/success?orderId=${encodeURIComponent(orderId)}`,
+            failUrl: `${config.appUrl}/fail?orderId=${encodeURIComponent(orderId)}`,
+            receiptTaxation: config.receiptTaxation,
+            receiptTax: config.receiptTax,
+          });
 
     if (!result.success) {
       updatePaymentStatus(orderId, "failed", { errorMessage: result.error });

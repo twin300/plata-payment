@@ -1,5 +1,5 @@
 export type PaymentConfig = {
-  provider: "mock" | "tbank";
+  provider: "mock" | "tbank" | "yookassa";
   appUrl: string;
   productName: string;
   productDescription: string;
@@ -29,7 +29,12 @@ export function getPaymentConfig(): PaymentConfig {
   const amountRub = readAmountRub();
 
   return {
-    provider: process.env.PAYMENT_PROVIDER === "tbank" ? "tbank" : "mock",
+    provider:
+      process.env.PAYMENT_PROVIDER === "tbank"
+        ? "tbank"
+        : process.env.PAYMENT_PROVIDER === "yookassa"
+          ? "yookassa"
+          : "mock",
     appUrl,
     productName: process.env.PRODUCT_NAME || "Оплата разработки лендинга",
     productDescription:
