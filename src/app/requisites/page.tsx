@@ -7,7 +7,7 @@ const contractor = {
   inn: process.env.CONTRACTOR_INN || "761020292512",
   phone: process.env.CONTRACTOR_PHONE || "89106669230",
   telegram: process.env.CONTRACTOR_TELEGRAM || "@matveygeek",
-  email: process.env.CONTRACTOR_EMAIL || "будет указан после создания рабочей почты",
+  email: process.env.CONTRACTOR_EMAIL || "marych23@yandex.ru",
   site: process.env.APP_URL || process.env.NEXT_PUBLIC_APP_URL || "http://127.0.0.1:3107",
 };
 
